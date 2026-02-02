@@ -5,8 +5,7 @@
   "private": true,
   "packageManager": "pnpm@10.18.3",
   "scripts": {
-    "remake": "强制使用pnpm重新构建项目",
-    "preinstall": "node ./scripts/check-pnpm.mjs",
+    "preinstall": "npx only-allow pnpm",
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview"
