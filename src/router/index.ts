@@ -1,24 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { handleHotUpdate, routes } from 'vue-router/auto-routes'
 
 const router = createRouter({
   history: createWebHistory(),
-  routes: [
-    {
-      path: '/',
-      name: 'Home',
-      component: () => import('@/pages/index.vue'),
-    },
-    {
-      path: '/about',
-      name: 'About',
-      component: () => import('@/pages/about.vue'),
-    },
-    {
-      path: '/login',
-      name: 'Login',
-      component: () => import('@/pages/login.vue'),
-    },
-  ],
+  routes,
 })
 
 export default router
+
+// 这将在运行时更新路由而无需重新加载页面
+if (import.meta.hot) {
+  handleHotUpdate(router)
+}

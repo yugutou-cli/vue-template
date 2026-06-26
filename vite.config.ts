@@ -1,10 +1,11 @@
 import path from 'node:path'
 import process from 'node:process'
-import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
+import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { defineConfig, loadEnv } from 'vite'
+import VueRouter from 'vue-router/vite'
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
@@ -17,8 +18,11 @@ export default defineConfig(({ mode }) => {
       open: false,
     },
     plugins: [
+      UnoCSS(),
+      VueRouter({
+        dts: './src/types',
+      }),
       vue(),
-      tailwindcss(),
       AutoImport({
         imports: ['vue', 'vue-router', 'pinia'],
         dirs: ['src/hooks', 'src/utils', 'src/store'], // 自动导入 hooks, utils 目录下的文件
