@@ -24,7 +24,7 @@ export default defineConfig(({ mode }) => {
         importMode: 'async',
         // 要排除的文件
         exclude: ['**/components/*'],
-        dts: './src/types',
+        dts: './src/types/typed-router.d.ts',
       }),
       vue(),
       AutoImport({
