@@ -21,10 +21,15 @@ export default defineConfig(({ mode }) => {
       tailwindcss(),
       AutoImport({
         imports: ['vue', 'vue-router', 'pinia'],
+        dirs: ['src/hooks', 'src/utils', 'src/store'], // 自动导入 hooks, utils 目录下的文件
         dts: 'src/types/auto-imports.d.ts',
+        vueTemplate: true,
+        vueDirectives: true,
       }),
       Components({
         dirs: ['src/components'],
+        directoryAsNamespace: false, // 是否把目录名作为命名空间前缀，true 时组件名为 目录名+组件名，
+
         dts: 'src/types/components.d.ts',
       }),
     ],
