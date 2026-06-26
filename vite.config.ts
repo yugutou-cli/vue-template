@@ -20,6 +20,10 @@ export default defineConfig(({ mode }) => {
     plugins: [
       UnoCSS(),
       VueRouter({
+        // 如何导入路由，也可以是字符串
+        importMode: 'async',
+        // 要排除的文件
+        exclude: ['**/components/*'],
         dts: './src/types',
       }),
       vue(),
